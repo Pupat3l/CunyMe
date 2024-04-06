@@ -1,0 +1,104 @@
+.abril-fatface-regular {
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.galada-regular {
+    font-family: "Galada", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+}
+#wrapper{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height:auto;
+    position: relative;
+}
+
+header{
+    background-color: rgb(10, 28, 93);
+    margin: 0;
+    padding: 5px;
+}
+nav h1{
+    text-align: center;
+    color:white;
+    display: inline;
+
+}
+nav.navbar {
+    border-bottom: 2px solid #000;
+    font-size: 1.2em;
+    display: flex;
+}
+.CUNY{
+    font-family: 'Abril Fatface','Raleway',sans-serif;
+}
+.me{
+    font-family: 'Galada','Abril Fatface',sans-serif;
+}
+body{
+    background-image: url(images/nyc.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(10px);
+    height: 100%;
+    min-width:100vh;
+    font-family:'Raleway','Abril FatFace', sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+.split-container{
+    display: flex;
+    height: 100vh;
+}
+#Intro, #Login{
+    flex:2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+#Intro{
+    background-color: rgba(99, 167, 235, 0.851);
+    width: 70%;
+    flex:3;
+}
+#Login{
+    background-color: rgba(60, 114, 195, 0.851);
+    max-width: 30%;
+}
+button{
+    display: block;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    margin: 20px 0px;
+    transition: background-color 0.3s ease;
+}
+.btn{
+    color:black;
+    background-color: #F3C53C;
+}
+.btn:hover{
+    background-color: rgb(205, 153, 50);
+    color:white;
+}
+footer {
+    background-color: rgb(10, 28, 93);
+    color: white;
+    font-weight:500;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+    border-top: 2px solid #000;
+    padding: 20px 0;
+}
