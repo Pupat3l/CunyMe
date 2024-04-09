@@ -7,16 +7,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Abril+Fatface&family=Galada&display=swap" rel="stylesheet">
-    <style>
+    <style>  
+        html {
+            height: 100%;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #085394;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
+
+        #wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer {
+            background-color: rgb(10, 28, 93);
+            color: white;
+            font-weight: 500;
+            text-align: center;
+            border-top: 2px solid #000;
+            padding: 20px 0;
+        }
+
+
         h1 {
             text-align: center;
             margin-bottom: 30px;
             color: #fff;
+            
         }
         .form-container {
             max-width: 500px;
@@ -41,35 +66,39 @@
         .form-group {
             margin-bottom: 20px;
         }
+    
+
+
     </style>
     <title>Web Print Request</title>
 </head>
 <body>
-    <h1>Web Print Request</h1>
-    <div class="form-container">
-        <form id="printForm" action="print.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
-            <div class="form-group">
-                <label for="formFileMultiple" class="form-label">Select File:</label>
-                <input class="form-control" type="file" id="formFileMultiple" accept=".xlam,.xls,.xlsb,.xlsm,.xlsx,.xltm,.xltx,.pot,.potm,.potx,.ppam,.pps,.ppsm,.ppsx,.ppt,.pptm,.pptx,.doc,.docm,.docx,.dot,.dotm,.dotx,.rtf,.txt,.pdf,.bmp,.dib,.gif,.jfif,.jif,.jpe,.jpeg,.jpg,.png,.tif,.tiff,.xps" multiple required onchange="enablePrinterAndCopies()">
-            </div>
-            <div class="form-group" id="printerGroup" style="display:none">
-                <label for="printer" class="form-label">Select Printer:</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="printer" id="flexRadioDefault1" value="blackwhite" required disabled>
-                    <label class="form-check-label" for="flexRadioDefault1">Black and White</label>
+    <div id="wrapper">
+        <h1>Web Print Request</h1>
+        <div class="form-container">
+            <form id="printForm" action="print.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label for="formFileMultiple" class="form-label">Select File:</label>
+                    <input class="form-control" type="file" id="formFileMultiple" accept=".xlam,.xls,.xlsb,.xlsm,.xlsx,.xltm,.xltx,.pot,.potm,.potx,.ppam,.pps,.ppsm,.ppsx,.ppt,.pptm,.pptx,.doc,.docm,.docx,.dot,.dotm,.dotx,.rtf,.txt,.pdf,.bmp,.dib,.gif,.jfif,.jif,.jpe,.jpeg,.jpg,.png,.tif,.tiff,.xps" multiple required onchange="enablePrinterAndCopies()">
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="printer" id="flexRadioDefault2" value="color" required disabled>
-                    <label class="form-check-label" for="flexRadioDefault2">Color</label>
+                <div class="form-group" id="printerGroup" style="display:none">
+                    <label for="printer" class="form-label">Select Printer:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="printer" id="flexRadioDefault1" value="blackwhite" required disabled>
+                        <label class="form-check-label" for="flexRadioDefault1">Black and White</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="printer" id="flexRadioDefault2" value="color" required disabled>
+                        <label class="form-check-label" for="flexRadioDefault2">Color</label>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group" id="copiesGroup" style="display:none">
-                <label for="copies" class="form-label">Number of Copies: <span id="copiesValue">1</span></label>
-                <input type="range" class="form-range" min="1" max="10" id="customRange2" value="1" oninput="updateCopies()" disabled>
-            </div>
-            <button type="submit" class="btn btn-primary btn-submit">Submit</button>
-        </form>
-    </div>
+                <div class="form-group" id="copiesGroup" style="display:none">
+                    <label for="copies" class="form-label">Number of Copies: <span id="copiesValue">1</span></label>
+                    <input type="range" class="form-range" min="1" max="10" id="customRange2" value="1" oninput="updateCopies()" disabled>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+            </form>
+        </div>
     <script>
         function validateForm() {
             var form = document.getElementById("printForm");
@@ -96,5 +125,6 @@
     <footer class="footer py-3 sticky-bottom">
         <p> <strong>&copy; 2024 CUNYme. All rights reserved. </strong></p>
     </footer>
+    </div>
 </body>
 </html>

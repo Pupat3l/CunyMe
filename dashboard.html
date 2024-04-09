@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>repl.it</title>
+
+  <!-- bootstrap css !-->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link href="dash.css" rel="stylesheet" type="text/css" />
+
+  <link href="https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"> <b> CUNYMe </b> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#access">Access <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#services">Services</a>
+            <a class="nav-item nav-link" href="#account">Account</a>
+            <a class="nav-item nav-link" href="#contact">Contact</a>
+
+          </div>
+
+        </div>
+        </div>
+  </nav>
+
+  <!--Header-->
+  <header class="d-flex align-items-center">
+    <div class="container">
+
+      <h1> Welcome, John! </h1>
+
+      <div><img src="DigitalIDCard.png" width=30% length=30%></div>
+
+
+
+      <button type="button" class="btn btn-success">Show QR Code</button>
+
+    </div>
+  </header>
+
+  <!---Serivce Section--->
+  <section class="container services">
+    <br>
+    </br>
+    <h1> CUNYMe Services </h1>
+    <p class="text"> Select a service that best suits your needs. </p>
+    <hr>
+    </hr>
+
+    <div class="row">
+      <div class="col-md-6">
+        <span>
+          <i class="fas fa-print"></i>
+          <strong> <br> </br>Printing & Scanning </strong>
+        </span>
+
+      </div>
+
+      <div class="col-md-6">
+        <span>
+          <i class="fas fa-laptop"></i>
+        </span>
+        <strong> <br> </br>Technology Loan </strong>
+
+      </div>
+    </div>
+
+    <br>
+    </br>
+    <div class="row">
+      <div class="col-md-6">
+        <span>
+          <i class="fas fa-headphones"></i>
+          <strong> <br> </br>Equipment Loan </strong>
+        </span>
+
+      </div>
+
+      <div class="col-md-6">
+        <span>
+          <i class="fas fa-book"></i>
+        </span>
+        <strong> <br> </br> Study Room Reservations </strong>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <script src="script.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <script src="https://kit.fontawesome.com/6a0714549c.js" crossorigin="anonymous"></script>
+</body>
+
+<br>
+<hr>
+</hr>
+
+
+
+<!-- Contact Section Left Side -->
+<section class="contact">
+  <h1> Contact </h1>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="input-group input-group-lg">
+
+        <div class="input-group input-group-lg">
+          <div class="input-group-prepend">
+            <i class="fas fa-user"></i>
+          </div>
+          <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+            placeholder="Email">
+        </div>
+
+
+        <div class="input-group input-group-lg">
+          <div class="input-group-prepend">
+            <i class="far fa-envelope"></i>
+
+          </div>
+          <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+            placeholder="Email">
+        </div>
+
+
+
+        <div class="input-group input-group-lg">
+          <div class="input-group-prepend">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+            placeholder="Phone Number">
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side Contact Page -->
+
+    <div class="col-lg-6 col-md-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <class="input-group-text">
+        </div>
+
+        <textarea class="form-control" aria-label="With textarea"></textarea>
+      </div>
+      <button class="btn btn-lg btn-danger">Submit Your Message</button>
+    </div>
+  </div>
+</section>
+
+<br>
+<hr>
+</hr>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <!-- CONTACT US -->
+    <div class="row">
+      <div class="col-md-4">
+        <h1>
+          <div class="hdr"> Contact Us
+          </div>
+        </h1>
+        <p>
+          <span> <i class="fas fa-home"></i> </span>
+          Address
+        </p>
+        <p> <span> <i class="far fa-envelope"></i> </span>
+          Email</p>
+        <p><span> <i class="fas fa-phone"></i> </span> Phone Number</p>
+        <p><span> <i class="fas fa-globe"></i> </span> Website</p>
+      </div>
+
+      <!-- ABOUT -->
+      <div class="col-md-4">
+        <h1>
+          <div class="hdr"> About
+          </div>
+        </h1>
+        <p>
+
+          About Us
+        </p>
+
+        Privacy </p>
+        <p> Terms and Conditions</p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="col-md-4">
+        <h1>
+          <div class="hdr"> Social Media
+        </h1>
+        <div class="footericons">
+          <a href="https://www.facebook.com/">
+            <a href="https://www.instagram.com/">
+              <a href="https://twitter.com/">
+
+        </div>
+        <span>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+              placeholder="Email">
+            <button class="btn btn-sucess"> Subscribe</button>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</html>
