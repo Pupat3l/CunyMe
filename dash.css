@@ -106,7 +106,8 @@ header {
 }
 
 .contact .btn {
-  width: 100% color: #f3c53c;
+  width: 100%; 
+  color: #f3c53c;
   background-color: rgb(0, 51, 161);
   border-radius: 0;
 }
