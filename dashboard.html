@@ -4,9 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>repl.it</title>
-
-  <!-- bootstrap css !-->
+  <title>CUNYme | Dashboard</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -28,7 +26,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#access">Account <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="scan.html">Account <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="#services">Services</a>
             <a class="nav-item nav-link" href="#contact">Contact</a>
 
@@ -42,31 +40,28 @@
   <header class="d-flex align-items-center">
     <div class="container">
 
-      <h1> Welcome, John! </h1>
+      <h1> Welcome, John Doe! </h1>
 
       <div><img src="DigitalIDCard.png" width=30% length=30%></div>
 
 
 
-      <button type="button" class="btn btn-success">Show QR Code</button>
+      <button type="button" class="btn btn-success" to="scan.html">Show QR Code</button>
 
     </div>
   </header>
 
   <!---Serivce Section--->
-  <section class="container services">
+  <section id="services" class="container services">
     <br>
-    </br>
     <h1> CUNYMe Services </h1>
-    <p class="text"> Select a service that best suits your needs. </p>
+    <p id="service-text"> Select a service that best suits your needs. </p>
     <hr>
-    </hr>
-
     <div class="row">
       <div class="col-md-6">
         <span>
           <i class="fas fa-print"></i>
-          <strong> <br> </br>Printing & Scanning </strong>
+          <strong> <br>Printing & Scanning </strong>
         </span>
 
       </div>
@@ -75,18 +70,16 @@
         <span>
           <i class="fas fa-laptop"></i>
         </span>
-        <strong> <br> </br>Technology Loan </strong>
+        <strong> <br>Technology Loan </strong>
 
       </div>
     </div>
-
     <br>
-    </br>
     <div class="row">
       <div class="col-md-6">
         <span>
           <i class="fas fa-headphones"></i>
-          <strong> <br> </br>Equipment Loan </strong>
+          <strong> <br> Equipment Loan </strong>
         </span>
 
       </div>
@@ -95,7 +88,7 @@
         <span>
           <i class="fas fa-book"></i>
         </span>
-        <strong> <br> </br> Study Room Reservations </strong>
+        <strong> <br> Study Room Reservations </strong>
 
       </div>
     </div>
@@ -118,68 +111,45 @@
   <script src="https://kit.fontawesome.com/6a0714549c.js" crossorigin="anonymous"></script>
 
 
-<br>
 <hr>
-</hr>
-
-
-
-<!-- Contact Section Left Side -->
-<section class="contact">
+<section id="contact" class="container py-5 form-signin w-100 m-auto">
   <h1> Contact </h1>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="input-group input-group-lg">
-
-        <div class="input-group input-group-lg">
-          <div class="input-group-prepend">
-            <i class="fas fa-user"></i>
-          </div>
-          <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
-            placeholder="Email">
-        </div>
-
-
-        <div class="input-group input-group-lg">
-          <div class="input-group-prepend">
-            <i class="far fa-envelope"></i>
-
-          </div>
-          <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
-            placeholder="Email">
-        </div>
-
-
-
-        <div class="input-group input-group-lg">
-          <div class="input-group-prepend">
-            <i class="fas fa-phone-alt"></i>
-          </div>
-          <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
-            placeholder="Phone Number">
-
-        </div>
+  <form class="needs-validation" action="thanks.html" method="get">
+    <div class="row">
+    <hr class="mb-4">
+      <div class="col-md-6 mb-3">
+        <label for="firstName">First name</label>
+        <input name="firstName" type="text" class="form-control" id="firstName" placeholder="First Name" value="" pattern="[a-zA-Z]+" required>
+      </div>
+      
+      <div class="col-md-6 mb-3">
+        <label for="lastName">Last name</label>
+        <input name="lastName" type="text" class="form-control" id="lastName" value="" placeholder="Last Name" pattern="[a-zA-Z]+" required>	  
       </div>
     </div>
-
-    <!-- Right Side Contact Page -->
-
-    <div class="col-lg-6 col-md-6">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <class="input-group-text">
-        </div>
-
-        <textarea class="form-control" aria-label="With textarea"></textarea>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="email">Email</label>
+        <input type="email" name = "email" class="form-control" id="email" placeholder="you@example.com" pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,}" required>
       </div>
-      <button class="btn btn-lg btn-danger">Submit Your Message</button>
+      <div class="col-md-6 mb-3">
+        <label for="phone-number">Phone Number </label>
+        <input type="text" name="phone-number" class="form-control" id="phone-number" placeholder="###-###-####" pattern="\d{3}-\d{3}-\d{4}" required>
+      </div>
     </div>
-  </div>
+    <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
+    </div>
+    <div class="mb-3">
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+    </div>
+</form>
 </section>
 
 <br>
 <hr>
-</hr>
 </body>
 
 <!-- Footer -->

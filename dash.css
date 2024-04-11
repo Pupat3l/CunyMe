@@ -46,6 +46,20 @@ header {
   text-align: center;
 }
 
+section {
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  margin: 20px 0;
+  padding: 10px;
+  border-color:red;
+  border-style:dashed;
+}
+
+#service-text{
+  text-align: center;
+}
+
 .services {
   text-align: center;
 }
@@ -67,15 +81,6 @@ header {
   border-radius: 50%
 }
 
-.database-icon {
-  /* insert something for the database class */
-}
-
-.service span {
-  width: 200px;
-  /* display: inline-block; */
-}
-
 .team {
   text-align: center;
 }
@@ -93,29 +98,35 @@ header {
 
 /* Contact */
 
-.contact {
+#contact {
   text-align: center;
 }
 
-.contact .inputgroup {
+#contact .inputgroup {
   padding: 20px;
 }
 
-.contact i {
+#contact i {
   padding: 25px;
 }
 
-.contact .btn {
+#contact .btn {
   width: 100%; 
   color: #f3c53c;
   background-color: rgb(0, 51, 161);
   border-radius: 0;
 }
 
-.contact .btn:hover {
-  background-color: grey;
+#contact .btn:hover {
+  background-color:#f3c53c;
+  color:rgb(0, 51, 161);;
 }
 
+#submit textarea{
+  width: 80%;
+  height: auto;
+  
+}
 
 .hdr {
   font-size: 20px;
@@ -128,4 +139,11 @@ header {
 .navbar-brand {
   font-family: 'Ralway';
 
+}
+
+.form-control:invalid{
+  border-color:#dc3545 ;
+}
+.form-control:valid{
+  border-color: #28a745;
 }
