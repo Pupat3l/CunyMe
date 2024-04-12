@@ -49,7 +49,7 @@ body{
     backdrop-filter: blur(10px);
     height: 100%;
     min-width:100vh;
-    font-family:'Raleway','Abril FatFace', sans-serif;
+    font-family:'Platypi','Abril FatFace', sans-serif;
     font-weight: 500;
     margin: 0;
     padding: 0;
@@ -75,7 +75,7 @@ body{
     background-color: rgba(60, 114, 195, 0.851);
     max-width: 30%;
 }
-button{
+.button{
     display: block;
     text-align: center;
     height: 50px;
