@@ -109,9 +109,10 @@
             </a>
         </nav>
     </header>
+    <h1>Web Print Service</h1>
     <div id="wrapper">
         <div class="form-container">
-            <form id="printForm" action="submitted.html" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <form id="printForm" action="#" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <div class="form-group">
                     <label for="formFileMultiple" class="form-label">Select File:</label>
                     <input class="form-control" type="file" id="formFileMultiple" accept=".xlam,.xls,.xlsb,.xlsm,.xlsx,.xltm,.xltx,.pot,.potm,.potx,.ppam,.pps,.ppsm,.ppsx,.ppt,.pptm,.pptx,.doc,.docm,.docx,.dot,.dotm,.dotx,.rtf,.txt,.pdf,.bmp,.dib,.gif,.jfif,.jif,.jpe,.jpeg,.jpg,.png,.tif,.tiff,.xps" multiple required onchange="enablePrinterAndCopies()">
