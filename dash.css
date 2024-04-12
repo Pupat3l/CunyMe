@@ -53,13 +53,13 @@ section {
   padding: 10px;
 }
 
-#service-color{
-  background-color: #28a745;
+#services{
+  background-color: #8cf1a4;
 }
 #profile{
   align-content: center;
   text-align: center;
-  background-color: #dc3545;
+  background-color: #e84f5e;
 }
 #profile div{
   padding: 30px;
@@ -110,7 +110,7 @@ hr {
 }
 #contact {
   text-align: center;
-  background-color: aliceblue;
+  background-color: rgb(110, 172, 226);
 }
 
 #contact .inputgroup {

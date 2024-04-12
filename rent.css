@@ -1,0 +1,127 @@
+html {
+    height: 100%;
+}
+body {
+    font-family: 'Platypi', sans-serif;
+    background-color: #4f98d8;;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header{
+    background-color: rgb(10, 28, 93);
+    margin: 0;
+    padding: 5px;
+}
+nav h1{
+    text-align: center;
+    color:white;
+    display: inline;
+
+}
+nav.navbar {
+    border-bottom: 2px solid #000;
+    font-size: 1.2em;
+    display: flex;
+}
+.CUNY{
+    font-family: 'Abril Fatface','Raleway',sans-serif;
+}
+.me{
+    font-family: 'Galada','Abril Fatface',sans-serif;
+}
+footer {
+    background-color: rgb(10, 28, 93);
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    border-top: 2px solid #000;
+    padding: 20px 0;
+    margin-top: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+.container {
+    width: 100%;
+    margin: auto;
+}
+
+.header {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    padding: 70px;
+}
+
+.container1 {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    padding: 70px;
+}
+
+.rental-item {
+    border: none;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.rental-item h2 {
+    margin: 0;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+.col {
+    flex: 1 0 21%; /* change this to control how many cards per row */
+    max-width: 21%; /* change this to control how many cards per row */
+    padding: 15px;
+}
+.card {
+    border: none;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+.card-body {
+    padding: 15px;
+}
+.card-title {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+.card-text {
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th {
+    background-color:rgba(0, 0, 0, 0.068);
+    color: black;
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    background-color:white;
+    color:black;
+    padding: 15px;
+    text-align: left;
+}
+
