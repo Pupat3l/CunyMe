@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const mongo_url = process.env.MONGODB_URL;
-const dbName = 'sample_mflix';
+const dbName = 'cunyme_dev';
 
 async function connectToDb() {
     const client = new MongoClient(mongo_url, { useUnifiedTopology: true });
