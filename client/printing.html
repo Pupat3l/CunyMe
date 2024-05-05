@@ -112,10 +112,10 @@
     <h1>Web Print Service</h1>
     <div id="wrapper">
         <div class="form-container">
-            <form id="printForm" action="submitted.html" method="get" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <form id="printForm" action="/print" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <div class="form-group">
                     <label for="formFileMultiple" class="form-label">Select File:</label>
-                    <input class="form-control" type="file" id="formFileMultiple" accept=".xlam,.xls,.xlsb,.xlsm,.xlsx,.xltm,.xltx,.pot,.potm,.potx,.ppam,.pps,.ppsm,.ppsx,.ppt,.pptm,.pptx,.doc,.docm,.docx,.dot,.dotm,.dotx,.rtf,.txt,.pdf,.bmp,.dib,.gif,.jfif,.jif,.jpe,.jpeg,.jpg,.png,.tif,.tiff,.xps" multiple required onchange="enablePrinterAndCopies()">
+                    <input class="form-control" type="file" name="formFileMultiple" id="formFileMultiple" accept=".xlam,.xls,.xlsb,.xlsm,.xlsx,.xltm,.xltx,.pot,.potm,.potx,.ppam,.pps,.ppsm,.ppsx,.ppt,.pptm,.pptx,.doc,.docm,.docx,.dot,.dotm,.dotx,.rtf,.txt,.pdf,.bmp,.dib,.gif,.jfif,.jif,.jpe,.jpeg,.jpg,.png,.tif,.tiff,.xps" multiple required onchange="enablePrinterAndCopies()">
                 </div>
                 <div class="form-group" id="printerGroup" style="display:none">
                     <label for="printer" class="form-label">Select Printer:</label>
@@ -130,10 +130,10 @@
                 </div>
                 <div class="form-group" id="copiesGroup" style="display:none">
                     <label for="copies" class="form-label">Number of Copies: <span id="copiesValue">1</span></label>
-                    <input type="range" class="form-range" min="1" max="10" id="customRange2" value="1" oninput="updateCopies()" disabled>
+                    <input type="range" class="form-range" min="1" max="10" name="copies" id="customRange2" value="1" oninput="updateCopies()" disabled>
                 </div>
                 <button type="submit" class="btn btn-primary btn-submit">Submit</button>
-            </form>
+            </form>            
         </div>
         <script>
         function validateForm() {
@@ -144,6 +144,7 @@
                 alert("Please select a file.");
                 return false;
             }
+            sendPrintingData();
             return true;
         }
         function updateCopies() {
@@ -156,6 +157,30 @@
             document.getElementById("flexRadioDefault1").disabled = false;
             document.getElementById("flexRadioDefault2").disabled = false;
             document.getElementById("customRange2").disabled = false;
+        }
+        function sendPrintingData() {
+            event.preventDefault(); 
+            const userId = localStorage.getItem('id');
+            console.log('User ID from local storage:', userId);
+
+            const formData = new FormData(document.getElementById('printForm'));
+            formData.append('userId', userId);
+
+            fetch('/print', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Printing data sent successfully');
+                    window.location.href = 'submitted.html';
+                } else {
+                    console.error('Error sending printing data');
+                }
+            })
+            .catch(error => {
+                console.error('Error sending printing data:', error);
+            });
         }
         </script>
     </div>

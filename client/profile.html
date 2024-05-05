@@ -9,7 +9,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Galada&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
               integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
         <style>
             html {
             height: 100%;
@@ -23,13 +22,13 @@
                 min-height: 100vh;
                 margin: 0;
             }
-            #wrapper{
+            .wrapper{
                 flex:1;
                 display: flex;
                 text-align: center;
                 justify-content: center;
                 align-items: center;
-                height:auto;
+                height:100%;
                 position: relative;
             }
             header{
@@ -76,8 +75,22 @@
                 position: relative;
                 z-index: 1;
             }
-            #barcode {
-                margin-top: 20px;
+            #qrcode {
+                margin: 20px;
+                width: 200px; 
+                height: 200px; 
+                border: 1px solid black;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+            #buttonsContainer {
+                display: flex;
+                justify-content: center;
+                margin: 20px;
+            }
+            #buttonsContainer button {
+                margin: 0 10px;
             }
         </style>
     </head>
@@ -89,25 +102,145 @@
                 </a>
             </nav>
         </header>
-        <div id="wrapper">
+        <div class="wrapper">
             <div class="container">
-                <div>
-                    <h1>User Information</h1>
-                    <p><strong>User Name:</strong> Danna Pastran</p>
-                    <p><strong>School Name:</strong> CUNY Baruch College</p>
-                    <p><strong>ID Number:</strong> 1234567</p>
-                    <svg id="barcode"></svg>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1>User Information</h1>
+                        <p><strong>User Name:</strong> <span id="userName"></span></p>
+                        <p><strong>School Name:</strong> CUNY Baruch College</p>
+                        <p><strong>ID Number:</strong> <span id="id"></span></p>
+                        <div class="d-flex justify-content-center">
+                            <div id="qrcode"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="editProfileFormContainer" style="display:none;">
+                            <h2>Edit Profile</h2>
+                            <form id="editProfileForm">
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password:</label>
+                                    <input type="password" id="currentPassword" name="currentPassword" required class="form-control">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="newPassword">New Password:</label>
+                                    <input type="password" id="newPassword" name="newPassword" required class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+                        <div id="buttonsContainer">
+                            <button id="editProfileButton" class="btn btn-primary">Edit Profile</button>
+                            <button id="deleteUserButton" class="btn btn-danger">Delete My Account</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.0/JsBarcode.all.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
         <script>
-            var data = "1234567";
-            JsBarcode("#barcode", data, {
-            background: "#F3C53C",
-            lineColor: "#085394"
+            function generateRandomString(length) {
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let result = '';
+                for (let i = 0; i < length; i++) {
+                    result += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                return result;
+            }
+            const qrContainer = document.getElementById('qrcode');
+            function generateQRCode() {
+                const randomString = generateRandomString(10);
+                const qrCodeURL = `https://chart.googleapis.com/chart?cht=qr&chl=${randomString}&chs=200x200&chld=L|0`;
+                qrContainer.innerHTML = `<img src="${qrCodeURL}" alt="QR Code" />`;
+            }
+            generateQRCode();
+            setInterval(generateQRCode, 5000);
+
+            const id = localStorage.getItem('id');
+            const firstName = localStorage.getItem('Fname');
+            const lastName = localStorage.getItem('Lname');
+        
+            const userName = `${firstName} ${lastName}`;
+        
+            document.getElementById('userName').textContent = userName;
+            document.getElementById('id').textContent=id;
+    
+        
+            const editProfileButton = document.getElementById('editProfileButton');
+            const editProfileFormContainer = document.getElementById('editProfileFormContainer');
+            const editProfileForm = document.getElementById('editProfileForm');
+        
+            editProfileButton.addEventListener('click', () => {
+                editProfileButton.style.display = 'none';
+                deleteUserButton.style.display = 'none';
+                editProfileFormContainer.style.display = 'block';
             });
-        </script>
+        
+            editProfileForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const userId = localStorage.getItem('id');
+        
+                const currentPassword = document.getElementById('currentPassword').value;
+                const newPassword = document.getElementById('newPassword').value;
+        
+                try {
+                    const response = await fetch('/updatePassword', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ userId, currentPassword, newPassword })
+                    });
+        
+                    if (response.ok) {
+                        alert('Password updated successfully');
+                        editProfileFormContainer.style.display = 'none';
+                    } else {
+                        alert('Failed to update password');
+                    }
+                } catch (error) {
+                    if (error.response && error.response.status >= 500 && error.response.status < 600) {
+                        console.error('Server Error:', error);
+                        alert('An error occurred on the server while updating the password');
+                    } else {
+                        console.error('Frontend Error:', error);
+                        alert('An error occurred on the frontend while updating the password');
+                    }
+                }
+                editProfileButton.style.display = 'block';
+                deleteUserButton.style.display = 'block';
+            });
+            const deleteUserButton = document.getElementById('deleteUserButton');
+            deleteUserButton.addEventListener('click', async () => {
+                const userId = localStorage.getItem('id');
+
+                try {
+                    const response = await fetch(`/users/${userId}`, {
+                        method: 'DELETE'
+                    });
+
+                    if (response.ok) {
+                        localStorage.removeItem('id');
+                        localStorage.removeItem('userEmail');
+                        localStorage.removeItem('Fname');
+                        localStorage.removeItem('Lname');
+                        alert('User deleted successfully');
+                        window.location.href = '/index.html';
+                    } else {
+                        const errorMessage = await response.text();
+                        alert(`Failed to delete user: ${errorMessage}`);
+                    }
+                } catch (error) {
+                    console.error('Error deleting user:', error);
+                    alert('An error occurred while deleting user');
+                }
+            });
+
+        </script>        
         <footer class="footer py-3 sticky-bottom">
             <p> <strong>&copy; 2024 CUNYme. All rights reserved. </strong></p>
         </footer>

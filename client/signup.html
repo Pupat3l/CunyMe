@@ -38,11 +38,16 @@
                       <label for="email">Email address</label>
                       <div class="invalid-feedback">Please enter a valid email address.</div>
                     </div>
-                    <div class="form-floating">
+                    <div class="form-floating mb-3">
                       <input type="password" class="form-control" id="password" placeholder="Password" required>
                       <label for="password">Password</label>
-                      <div class="invalid-feedback">Password must contain at least 8 characters with at least one uppercase letter, one lowercase letter, one number, and one special character.</div>
+                      <div class="invalid-feedback">Password must contain at least 8 characters.</div>
                     </div>
+                    <div class="form-floating mb-3">
+                      <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
+                      <label for="confirmPassword">Confirm Password</label>
+                      <div class="invalid-feedback">Passwords do not match.</div>
+                  </div>
                     <button type="submit" class="btn btn-primary button">Sign up</button>
                 </form>
                 <a class="btn btn-primary button" href="login.html" role="button">Log In</a>
@@ -58,10 +63,18 @@
   <script>
     document.getElementById('signup-form').addEventListener('submit',async function(e){
         e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
 
-        const formData={
-            email: document.getElementById('email').value,
-            password: document.getElementById('password').value
+        if (password !== confirmPassword) {
+            document.getElementById('confirmPassword').classList.add('is-invalid');
+            return;
+        }
+
+        const formData = {
+            email: email,
+            password: password
         };
         try{
             const response = await fetch('/register',{
@@ -72,7 +85,12 @@
                 body: JSON.stringify(formData)
             });
             if (response.ok) {
-                window.location.href = '/dashboard.html'; // Redirect to dashboard.html
+              const userData = await response.json();
+              localStorage.setItem('id',userData.id);
+              localStorage.setItem('userEmail', userData.email);
+              localStorage.setItem('Fname', userData.Fname);
+              localStorage.setItem('Lname', userData.Lname);
+              window.location.href = '/dashboard.html';
             } else {
                 const errorMessage = await response.text();
                 alert(errorMessage);

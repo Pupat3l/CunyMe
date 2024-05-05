@@ -27,7 +27,14 @@ body{
 nav h1{
   color: white;
 }
-
+.button {
+  background-color:  #f3c53c;
+  color: black;
+  width: max-content;
+}
+.button:hover{
+  background-color:#ba9832;
+}
 header{
   background-color: rgb(10, 28, 93);
   margin: 0;

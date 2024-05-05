@@ -1,21 +1,19 @@
 import express from 'express';
 import routes from './routes.js';
 import cors from 'cors';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { dirname} from 'path';
+import path from 'path';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+
+const __dirname = dirname(path.resolve());
 
 const app = express();
-const port = process.env.PORT || 5500;
+const port = process.env.PORT || 5501;
 
 app.use(cors());
 
-// Construct the directory path to serve static files
-const clientDirectory = dirname(__filename);
+app.use('/static', express.static(path.join(__dirname, 'client')));
 
-app.use(express.static(clientDirectory));
 app.use(express.json());
 
 app.use('/', routes);

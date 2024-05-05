@@ -42,18 +42,6 @@ nav.navbar {
 .me{
     font-family: 'Galada','Abril Fatface',sans-serif;
 }
-body{
-    background-image: url(/client/images/nyc.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    backdrop-filter: blur(10px);
-    height: 100%;
-    min-width:100vh;
-    font-family:'Platypi','Abril FatFace', sans-serif;
-    font-weight: 500;
-    margin: 0;
-    padding: 0;
-}
 .split-container{
     display: flex;
     height: 100vh;
@@ -66,6 +54,18 @@ body{
     flex-direction: column;
     padding: 10px;
 }
+body{
+    background-image: url('https://drive.google.com/uc?id=1fwiC_ZKSYHawXE3XPzwJNSiRh-Vy1ZVV');
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(10px);
+    height: 100%;
+    min-width:100vh;
+    font-family:'Platypi','Abril FatFace', sans-serif;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+  }
 #Intro{
     background-color: rgba(99, 167, 235, 0.851);
     width: 70%;

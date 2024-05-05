@@ -23,16 +23,20 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav nav-underline ms-auto">
+            <div class="navbar-nav nav-underline w-100">
               <a class="nav-link text-white" href="profile.html">Account <span class="sr-only">(current)</span></a>
               <a class="nav-link text-white" href="#services">Services</a>
               <a class="nav-link text-white" href="#contact">Contact</a>
+              <a class="nav-link text-white" href="history.html">History</a>
+            </div>
+            <div class="navbar-nav nav-underline">
+              <button class="btn button ms-auto" id="signoutButton" role="button">Sign Out</button>
             </div>
           </div>
     </nav>
   </header>
   <section class="container" id="profile">
-    <h1> Welcome, John Doe! </h1>
+    <h1 id="name"> Welcome, John Doe! </h1>
     <div>
       <img src="client/images/profile.png" width=30% length=30%>
     </div>
@@ -136,7 +140,22 @@
     </div>
 </form>
 </section>
+<script>
+  const firstName = localStorage.getItem('Fname');
+  const lastName = localStorage.getItem('Lname');
+  const userName = `${firstName} ${lastName}`;
+  document.getElementById('name').textContent = `Welcome, ${userName}!`;
 
+  document.getElementById('signoutButton').addEventListener('click', function() {
+      localStorage.removeItem('userId');
+      localStorage.removeItem('userEmail');
+      localStorage.removeItem('Fname');
+      localStorage.removeItem('Lname');
+  
+      // Redirect the user to the index.html page
+      window.location.href = '/index.html'; // Adjust the URL as needed
+  });
+  </script>
 <br>
 </body>
 
