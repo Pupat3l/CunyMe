@@ -8,7 +8,7 @@ import path from 'path';
 const __dirname = dirname(path.resolve());
 
 const app = express();
-const port = process.env.PORT || 5501;
+const port = process.env.PORT || 5500;
 
 app.use(cors());
 

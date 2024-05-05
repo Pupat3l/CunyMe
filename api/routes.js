@@ -4,26 +4,10 @@ import path from 'path';
 import bcrypt from 'bcrypt';
 import { ObjectId } from 'mongodb';
 import multer from 'multer';
-import fs from 'fs';
-
-
-const __dirname = path.resolve();
 
 const router = express.Router();
 
 const db = await connectToDb();
-
-router.get('/:filename', (req, res) => {
-    const filename = req.params.filename;
-    const filePath = path.join(__dirname, '../client', filename);
-    
-    if (fs.existsSync(filePath)) {
-        res.sendFile(filePath);
-    } else {
-        console.error(`File not found: ${filename}`);
-        res.status(404).send('File not found');
-    }
-});
 
 router.post('/register', async (req, res) => {
     const { email, password } = req.body;
@@ -90,9 +74,14 @@ router.post('/print', upload.single('formFileMultiple') , async (req, res) => {
             userId,
             printer,
             copies,
-            file
+            file: {
+                originalName: file.originalname,
+                encoding: file.encoding,
+                mimetype: file.mimetype,
+                size: file.size
+            }
         });
-        res.redirect('submitted.html');;
+        res.redirect('/static/submitted.html');;
     } catch (error) {
         console.error('Error saving printing data:', error);
         res.status(500).send('An error occurred while saving printing data');
