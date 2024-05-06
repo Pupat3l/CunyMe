@@ -15,7 +15,7 @@
   <header class="nav">
     <nav class="navbar">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/static/index.html">
+        <a class="navbar-brand" href="index.html">
           <h1 class="CUNY">CUNY<span class="me">me</span></h1>
         </a>
       </div>
@@ -50,7 +50,7 @@
                   </div>
                     <button type="submit" class="btn btn-primary button">Sign up</button>
                 </form>
-                <a class="btn btn-primary button" href="/static/login.html" role="button">Log In</a>
+                <a class="btn btn-primary button" href="login.html" role="button">Log In</a>
           </strong>
           </div> 
         </div>
@@ -90,7 +90,7 @@
               localStorage.setItem('userEmail', userData.email);
               localStorage.setItem('Fname', userData.Fname);
               localStorage.setItem('Lname', userData.Lname);
-              window.location.href = '/static/dashboard.html';
+              window.location.href = 'dashboard.html';
             } else {
                 const errorMessage = await response.text();
                 alert(errorMessage);

@@ -17,17 +17,17 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="/static/dashboard.html"> <h1 class="CUNY">CUNY<span class="me">me</span></h1></a>
+      <a class="navbar-brand" href="dashboard.html"> <h1 class="CUNY">CUNY<span class="me">me</span></h1></a>
           <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav nav-underline w-100">
-              <a class="nav-link text-white" href="/static/profile.html">Account <span class="sr-only">(current)</span></a>
+              <a class="nav-link text-white" href="profile.html">Account <span class="sr-only">(current)</span></a>
               <a class="nav-link text-white" href="#services">Services</a>
               <a class="nav-link text-white" href="#contact">Contact</a>
-              <a class="nav-link text-white" href="/static/history.html">History</a>
+              <a class="nav-link text-white" href="history.html">History</a>
             </div>
             <div class="navbar-nav nav-underline">
               <button class="btn button ms-auto" id="signoutButton" role="button">Sign Out</button>
@@ -40,7 +40,7 @@
     <div>
       <img src="images/profile.png" width=30% length=30%>
     </div>
-    <a href="/static/profile.html"><button type="button" class="btn btn-warning">Show QR Code</button></a>
+    <a href="profile.html"><button type="button" class="btn btn-warning">Show QR Code</button></a>
   </section>
 
   <!---Serivce Section--->
@@ -52,7 +52,7 @@
     <div id="Services">
       <div class="row">
         <div class="col-md-6">
-          <a href="/static/printing.html">
+          <a href="printing.html">
             <span>
               <i class="fas fa-print"></i>
               <strong>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="col-md-6">
-          <a href="/static/rent.html">
+          <a href="rent.html">
             <span>
               <i class="fas fa-laptop"></i>
             </span>
@@ -108,7 +108,7 @@
 
 <section id="contact" class="container py-5 form-signin w-100 m-auto">
   <h1> Contact </h1>
-  <form class="needs-validation" action="/static/thanks.html" method="get">
+  <form class="needs-validation" action="thanks.html" method="get">
     <div class="row">
     <hr class="mb-4">
       <div class="col-md-6 mb-3">
@@ -153,7 +153,7 @@
       localStorage.removeItem('Lname');
   
       // Redirect the user to the index.html page
-      window.location.href = '/static/index.html'; // Adjust the URL as needed
+      window.location.href = 'index.html'; // Adjust the URL as needed
   });
   </script>
 <br>
